@@ -30,9 +30,11 @@ $middleware($app);
 $routes = require __DIR__ . '/../src/routes.php';
 $routes($app);
 
+$data_member= json_decode(file_get_contents('data/profile_member.json'), true);
+
 $app->post("/", function ($storeUrl) use ($router) {
-       if($_POST['username'] == 'fluke' && $_POST['password'] == '123456'){
-            $data = array('username' => $_POST['username'], 'password' => $_POST['password'] ,'status' => 'correct');
+       if($_POST['username'] == $data_member['username'] && $_POST['password'] ==  $data_member['password'] ){
+            $data = array('username' => $_POST['username'], 'password' => $_POST['password'] ,'status' => 'correct' ,'data_member' => $data_member['username'] ,'status' => $data_member['username']);
             echo json_encode($data);   
             $_SESSION['username'] = $_POST['username'];
        }else{
