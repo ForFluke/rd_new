@@ -25,3 +25,14 @@ Run this command in the application directory to run the test suite
 	php composer.phar test
 
 That's it! Now go build something cool.
+ ## update git
+		git add .
+		git commit -m "rd workshop"
+		git push -u origin master
+## NEW
+		echo "# rd_new" >> README.md
+		git init
+		git add README.md
+		git commit -m "first commit"
+		git remote add origin https://github.com/ForFluke/rd_new.git
+		git push -u origin master
